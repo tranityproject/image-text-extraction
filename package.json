@@ -1,0 +1,79 @@
+{
+  "name": "image-text-extraction",
+  "version": "1.0.0",
+  "description": "Image text extraction SDK using Google Cloud Vision API",
+  "keywords": [
+    "image",
+    "text",
+    "extraction",
+    "sdk",
+    "typescript",
+    "google"
+  ],
+  "homepage": "https://github.com/tranityproject/image-text-extraction",
+  "bugs": {
+    "url": "https://github.com/tranityproject/image-text-extraction/issues",
+    "email": "wahyu@tranity.id"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tranityproject/image-text-extraction.git"
+  },
+  "author": "Tranity <wahyu@tranity.id> (https://tranity.id)",
+  "license": "MIT",
+  "private": false,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./*": "./dist/*.js"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "!dist/tsconfig.tsbuildinfo"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest",
+    "lint:check": "eslint . --ext .ts,.tsx",
+    "lint": "npm run lint:check -- --fix",
+    "format": "npm run format:fix -- --write",
+    "format:fix": "prettier '**/*.{ts,tsx,json,md}'",
+    "format:check": "npm run format:fix -- --list-different",
+    "link-in-app": "ts-node --skipProject scripts/link-in-app.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.1",
+    "@types/node-fetch": "^2.6.4",
+    "@types/react": "^18.2.6",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^11.1.1",
+    "node-fetch": "^3.3.2",
+    "prettier": "^2.8.8",
+    "react": "^18.2.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
+    "vitest": "^0.31.1"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix"
+    ],
+    "*.{ts,tsx,json,md}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged -v"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
